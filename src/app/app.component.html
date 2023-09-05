@@ -8,7 +8,8 @@
              [(ngModel)]="dateTimeRange"
              [selectMode]="'range'"
              [owlDateTimeTrigger]="dtRange1" [owlDateTime]="dtRange1"
-             (click)="handleInputClick($event)">
+             (click)="handleInputClick($event)"
+             (closed)="handleDateTimeClosed()">
       <owl-date-time #dtRange1></owl-date-time>
     </label>
   

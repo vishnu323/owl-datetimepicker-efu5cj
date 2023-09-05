@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation,ElementRef, HostListener } from '@angular/core';
 import { startOfDay, endOfDay, subDays, startOfMonth, endOfMonth, subMonths, startOfYear, endOfYear ,subYears,subHours,startOfHour,endOfHour} from 'date-fns';
+
 
 @Component({
     selector: 'app-root',
@@ -13,8 +14,24 @@ export class AppComponent {
     dateTimeRangeFrom: Date;
     dateTimeRangeTo: Date;
   
-    constructor() {
+    constructor(private elRef: ElementRef) {
       this.dateTimeRange = [new Date(), new Date()]; // Initialize as a range
+    }
+
+    @HostListener('document:click', ['$event'])
+    onDocumentClick(event: MouseEvent): void {
+      const ref = document.querySelector('owl-date-time-container');
+      if(!ref){
+        this.handleDateTimeClosed()
+      }
+    }
+
+    handleDateTimeClosed() {
+      const ref = document.querySelector('#data-wrapper');
+      if (ref instanceof HTMLElement) {
+        ref.style.display = 'none';
+      }
+
     }
     
     handleInputClick(event: MouseEvent) {
