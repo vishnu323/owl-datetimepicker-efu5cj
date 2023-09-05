@@ -7,15 +7,15 @@
              [style.width]="'350px'"
              [(ngModel)]="dateTimeRange"
              [selectMode]="'range'"
-             [owlDateTimeTrigger]="dtRange1" [owlDateTime]="dtRange1">
+             [owlDateTimeTrigger]="dtRange1" [owlDateTime]="dtRange1"
+             (click)="handleInputClick($event)">
       <owl-date-time #dtRange1></owl-date-time>
     </label>
   
-    <h4>Value From Picker: {{ dateTimeRange }}</h4>
+  
   </div>
   
-  <div class="example-wrapper">
-    <h2>Predefined Ranges</h2>
+  <div id="data-wrapper">
     <button mat-button (click)="setLastHoursRange(1)">Last 1 Hour</button>
     <button mat-button (click)="setLastHoursRange(6)">Last 6 Hours</button>
     <button mat-button (click)="setTodayRange()">Today</button>

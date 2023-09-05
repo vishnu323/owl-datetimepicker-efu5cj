@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 import { startOfDay, endOfDay, subDays, startOfMonth, endOfMonth, subMonths, startOfYear, endOfYear ,subYears,subHours,startOfHour,endOfHour} from 'date-fns';
 
 @Component({
@@ -16,6 +16,23 @@ export class AppComponent {
     constructor() {
       this.dateTimeRange = [new Date(), new Date()]; // Initialize as a range
     }
+    
+    handleInputClick(event: MouseEvent) {
+      const ref = document.querySelector('#data-wrapper');
+      if (ref instanceof HTMLElement) {
+        ref.style.display = 'flex';
+        ref.style.flexDirection='column'
+      }
+    }
+
+    handleDateTimeBlur() {
+      // Handle the blur event for the date-time picker here
+      // This is triggered when the date-time picker loses focus
+      console.log('Date Time Picker closed');
+      
+    }
+
+    
   
     setTodayRange() {
       const today = new Date();
