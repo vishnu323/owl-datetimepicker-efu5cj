@@ -23,6 +23,7 @@
     "ng-pick-datetime": "6.0.14",
     "ng-pick-datetime-moment": "1.0.6",
     "rxjs": "6.1.0",
+    "saturn-datepicker": "^8.0.5",
     "web-animations-js": "2.3.1",
     "zone.js": "0.8.26"
   },
